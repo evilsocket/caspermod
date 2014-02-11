@@ -1,0 +1,70 @@
+{{#post}}
+    {{#contentFor "meta"}}
+		<meta property="og:title" content="{{title}}" />
+		<meta property="description" content="{{excerpt}}" />
+		<meta property="og:description" content="{{excerpt}}" />
+		<meta property="og:type" content="article" />
+		<meta property="article:published_time" content="{{date published_at format='YYYY-MM-DD'}}" />
+		<meta property="article:author" content="http://www.evilsocket.net/">
+		{{#if @blog.logo}}
+			<meta property="og:image" content="http://www.evilsocket.net{{@blog.logo}}"/>
+		{{/if}}
+		{{#foreach tags}}
+			<meta property="article:tag" content="{{name}}"/>
+		{{/foreach}}
+    {{/contentFor}}
+{{/post}}
+
+{{!< default}}
+
+{{> small_nav }}
+
+<main class="content" role="main">
+
+    <article class="{{post_class}}">
+
+        {{#post}}
+
+            <h1 class="post-title">{{{title}}}</h1>
+            <span class="post-meta">
+				<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{tags prefix="on "}}
+			</span>
+			
+            <section class="post-content">
+                {{content}}
+            </section>
+
+            <footer class="post-footer">
+
+                <section class="author">
+                    <h4>{{author.name}}</h4>
+                    <p>{{author.bio}}</p>
+                </section>
+
+                <section class="share">
+                    <h4>Share this post</h4>
+                    <a class="icon-twitter" href="http://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                    </a>
+                </section>
+
+            </footer>
+
+        {{/post}}
+	
+		{{> addthis }}
+		
+		{{> disqus }}    
+
+    </article>
+
+</main>

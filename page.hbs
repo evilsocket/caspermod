@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{> small_nav }}
+
+<main class="content" role="main">
+
+    <article class="{{post_class}}">
+
+        {{#post}}
+
+            <h1 class="post-title">{{{title}}}</h1>
+
+            <section class="post-content">
+                {{content}}
+            </section>
+
+        {{/post}}
+		
+		{{> disqus }}
+
+    </article>
+
+</main>

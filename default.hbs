@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{{meta_title}}</title>
+	{{#if post}}
+		{{{block "meta"}}}
+	{{else}}
+		<meta name="description" content="{{meta_description}}" />
+	{{/if}}
+	<meta property="og:url" content="{{@blog.url}}{{url}}">
+	<meta name="twitter:url" content="{{@blog.url}}{{url}}">
+
+    <meta name="google-site-verification" content="6qdVG0z0lac2ceITCoTCNm15CPp3K9Sq41_5IK4OLKM" /><meta name="google-site-verification" content="6qdVG0z0lac2ceITCoTCNm15CPp3K9Sq41_5IK4OLKM" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+    {{ghost_head}}
+
+	{{> analytics }}
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset "css/tomorrow-night.css"}}" />
+
+</head>
+<body class="{{body_class}}">
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    <footer class="site-footer">
+        <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a>
+
+		<a class="icon-twitter" style="text-decoration: none" href="http://twitter.com/evilsocket" title="Follow Me">
+		<span class="hidden">Twitter</span>
+		</a>
+		<a class="icon-facebook" style="text-decoration: none" href="https://www.facebook.com/evilsocket" title="Find me on Facebook">
+		<span class="hidden">Facebook</span>
+		</a>
+		<a class="icon-google-plus" style="text-decoration: none" href="https://plus.google.com/104794390596458308819/posts" title="Add me on Google+">
+		<span class="hidden">Google+</span>
+		</a>
+
+        <div class="inner">
+             <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
+             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a></section>
+        </div>
+    </footer>
+
+    {{ghost_foot}}
+
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+</body>
+</html>
