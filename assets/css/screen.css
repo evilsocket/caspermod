@@ -939,3 +939,21 @@ a.navlink {
 	font-size: 1.4rem;
 	font-weight: 800;
 }
+
+ul.socialicons
+{
+	display: block;
+	margin: 0;
+	margin-top: 30px;
+	padding: 0;
+	width: auto;
+	list-style-type: none;
+	white-space: nowrap;
+}
+
+ul.socialicons > li
+{
+	margin-right: 0.5rem;
+	display: inline-block;
+	width: 33px;
+}
