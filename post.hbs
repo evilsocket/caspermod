@@ -12,8 +12,10 @@
             <span class="post-meta">
 				<time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{tags prefix="on "}}
 			</span>
-			
+
             <section class="post-content">
+                {{> addthis }}
+                <br/><br/>
                 {{content}}
             </section>
 
@@ -43,10 +45,8 @@
             </footer>
 
         {{/post}}
-	
-		{{> addthis }}
-		
-		{{> disqus }}    
+
+		{{> disqus }}
 
     </article>
 
